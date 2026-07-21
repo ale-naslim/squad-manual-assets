@@ -1,0 +1,57 @@
+@font-face{font-family:'TT Norms';src:url('https://cdn.jsdelivr.net/gh/ale-naslim/squad-manual-assets@main/assets/fonts/TTNorms-Regular.otf') format('opentype');font-weight:400;font-display:swap}
+@font-face{font-family:'TT Norms';src:url('https://cdn.jsdelivr.net/gh/ale-naslim/squad-manual-assets@main/assets/fonts/TTNorms-Medium.otf') format('opentype');font-weight:500;font-display:swap}
+@font-face{font-family:'TT Norms';src:url('https://cdn.jsdelivr.net/gh/ale-naslim/squad-manual-assets@main/assets/fonts/TTNorms-Bold.otf') format('opentype');font-weight:700;font-display:swap}
+:root{--paper:#EBEBE3;--ink:#0C3C3C;--ink-soft:#3E4E48;--mut:#7E8C85;--green:#0C3C3C;--mint:#9FE4B2;--coral:#FF8D7D;--teal:#63B6B5;--hair:rgba(12,60,60,.13)}
+*{box-sizing:border-box;margin:0;padding:0}
+/* A TT Norms tem ligaturas (s+t, c+t...) que "grudam" os caracteres e deixam
+   o texto estranho. font-variant-ligatures sozinho no body nao pegava todos os
+   elementos, entao desligamos em TUDO e reforcamos por font-feature-settings,
+   que age direto nas features do arquivo da fonte. */
+*,*::before,*::after{font-variant-ligatures:none;-webkit-font-feature-settings:"liga" 0,"clig" 0,"dlig" 0,"hlig" 0,"calt" 0;font-feature-settings:"liga" 0,"clig" 0,"dlig" 0,"hlig" 0,"calt" 0}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{font-family:'TT Norms',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;font-variant-ligatures:none}
+.top{background:var(--green);color:var(--paper);padding:14px clamp(18px,5vw,40px);display:flex;align-items:center;gap:14px}
+.top img{height:15px}
+.top a{margin-left:auto;color:var(--mint);font-size:13px;text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.wrap{max-width:760px;margin:0 auto;padding:clamp(30px,6vw,64px) clamp(18px,5vw,28px) 90px}
+.eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);font-weight:700}
+h1{font-size:clamp(28px,5vw,42px);letter-spacing:-.025em;margin:12px 0 6px;line-height:1.1}
+.upd{font-size:13px;color:var(--mut)}
+.lead{margin-top:22px;font-size:17px;color:var(--ink-soft)}
+h2{font-size:clamp(18px,2.6vw,22px);letter-spacing:-.015em;margin:38px 0 10px;padding-top:22px;border-top:1px solid var(--hair)}
+h2 .n{color:var(--teal);font-variant-numeric:tabular-nums;margin-right:8px}
+p{margin:10px 0;color:var(--ink-soft)}
+ul{margin:10px 0 10px 4px;padding-left:18px;color:var(--ink-soft)}
+li{margin:7px 0}
+b,strong{color:var(--green)}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px}
+th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--hair);vertical-align:top}
+th{color:var(--green);font-weight:700;font-size:13px;letter-spacing:.02em}
+/* No desktop as colunas tinham larguras instaveis: a 1a estava com nowrap e
+   empurrava as outras. Larguras fixas dao ritmo e evitam o texto espremido. */
+th:nth-child(1),td:nth-child(1){width:26%;color:var(--green);font-weight:500}
+th:nth-child(2),td:nth-child(2){width:45%}
+th:nth-child(3),td:nth-child(3){width:29%}
+
+/* Mobile: tabela de 3 colunas nao cabe em 390px sem espremer tudo. Cada linha
+   vira um cartao empilhado, com o nome da coluna como rotulo. */
+@media(max-width:640px){
+  table{font-size:14px;margin:16px 0}
+  /* A tabela nao tem <thead>: os <th> ficam soltos na 1a linha. Esconder
+     "thead" nao pegava nada e o cabecalho virava um cartao vazio no topo. */
+  table tr:first-child{display:none}
+  tr{display:block;background:rgba(255,255,255,.55);border:1px solid var(--hair);
+     border-radius:14px;padding:14px 16px;margin-bottom:10px}
+  th,td{display:block;width:auto!important;border:0;padding:0}
+  td:nth-child(1){font-size:15.5px;font-weight:700;color:var(--green);line-height:1.3;
+     padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid var(--hair)}
+  td[data-l]{padding-top:10px}
+  td[data-l]::before{content:attr(data-l);display:block;font-size:10.5px;text-transform:uppercase;
+     letter-spacing:.1em;color:var(--mut);font-weight:700;margin-bottom:3px}
+}
+.callout{background:rgba(159,228,178,.22);border-left:3px solid var(--mint);border-radius:0 12px 12px 0;padding:16px 20px;margin:18px 0}
+.callout.warn{background:rgba(255,141,125,.12);border-left-color:var(--coral)}
+.callout p{margin:6px 0;color:var(--ink)}
+a{color:var(--green)}
+.foot{margin-top:44px;padding-top:22px;border-top:1px solid var(--hair);font-size:13px;color:var(--mut)}
