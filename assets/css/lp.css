@@ -391,8 +391,12 @@ footer .disc p{margin-bottom:7px}
 @media(prefers-reduced-motion:reduce){.fade{opacity:1!important;transform:none!important;transition:none!important}}
 
 /* CTA flutuante (barra inferior mobile-first) */
-.floatcta{position:fixed;left:0;right:0;bottom:0;z-index:850;margin-inline:auto;width:100%;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--highlighter);color:var(--hero);font-family:var(--font-b);font-weight:700;font-size:16px;letter-spacing:.01em;padding:16px 24px calc(16px + env(safe-area-inset-bottom));box-shadow:0 -10px 30px rgba(0,0,0,.28);transform:translateY(130%);transition:transform .4s var(--ease);cursor:pointer}
-.floatcta.show{transform:none}
+.floatcta{position:fixed;left:0;right:0;bottom:0;z-index:850;margin-inline:auto;width:100%;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--highlighter);color:var(--hero);font-family:var(--font-b);font-weight:700;font-size:16px;letter-spacing:.01em;padding:16px 24px calc(16px + env(safe-area-inset-bottom));box-shadow:0 -10px 30px rgba(0,0,0,.28);transform:translateY(130%);opacity:0;pointer-events:none;transition:transform .4s var(--ease),opacity .28s var(--ease);cursor:pointer}
+/* opacity/pointer-events junto com o transform de proposito: no desktop o botao
+   fica a 22px do fim da tela, entao descer 130% da altura ainda deixava uns 6px
+   dele espiando na borda. Agora, escondido, ele e invisivel e nao clicavel
+   independente de altura, padding ou distancia do rodape. */
+.floatcta.show{transform:none;opacity:1;pointer-events:auto}
 .floatcta .arw{transition:transform .25s var(--ease)}
 .floatcta:hover .arw{transform:translateX(4px)}
 @media(min-width:760px){.floatcta{width:max-content;bottom:22px;border-radius:999px;padding:15px 30px;box-shadow:0 14px 34px rgba(159,228,178,.45)}}
