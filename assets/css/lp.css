@@ -235,7 +235,10 @@ em.gr{font-style:normal;color:var(--hl-deep)}
 
 /* DEPOIMENTOS - mouse-follow, citações em serifada (Bressay/Playfair) */
 #depo{padding:clamp(72px,11vw,120px) 0}
-#depo .head{text-align:center;margin-bottom:22px}
+/* o "margin:0 auto" nao e detalhe: .head tem max-width 820px e o wrap chega a
+   1036px, entao sem ele a caixa encosta na esquerda e o texto centraliza dentro
+   dela - ficando ~108px fora do eixo dos cards. */
+#depo .head{text-align:center;margin:0 auto 22px}
 #depo .note{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:30px;font-style:italic}
 .erows{position:relative;max-width:1000px;margin:0 auto}
 .erow{position:relative;display:flex;align-items:center;justify-content:space-between;gap:18px;border-top:1px solid rgba(12,60,60,.15);padding:clamp(20px,3vw,30px) 12px;overflow:hidden}
