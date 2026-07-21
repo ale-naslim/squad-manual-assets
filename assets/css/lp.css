@@ -63,7 +63,7 @@ em.gr{font-style:normal;color:var(--hl-deep)}
 .nav.on-dark{background:rgba(8,43,43,.55);border-color:rgba(159,228,178,.28);color:var(--white)}
 .nav__logo{display:flex;align-items:center;gap:9px;color:inherit}
 .nav__logo b{font-weight:700;font-size:18px;letter-spacing:.04em}
-.navmark{height:15px;width:auto;display:block}
+.navmark{height:21px;width:auto;display:block}
 .nav:not(.on-dark) .navmark{filter:brightness(0)}
 .nav__logo span{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--hl-deep);border-left:1px solid currentColor;padding-left:9px}
 .nav.on-dark .nav__logo span{color:var(--highlighter)}
