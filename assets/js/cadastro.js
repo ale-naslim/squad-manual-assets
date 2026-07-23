@@ -10,11 +10,12 @@ var NONCE='mnl_pp_cda72178f1164c5a80ec';
 var CONSENT_VERSAO='2026-07-20.v1';
 var T0=Date.now(); // marca de tempo pra medir preenchimento humano
 
-/* URL do documento de termos e condicoes da parceria. No Google Forms ainda
-   esta como placeholder "[CLIQUE AQUI PARA LER O CONTRATO NA INTEGRA]".
-   Enquanto estiver vazia, o aceite aparece SEM link e um aviso e exibido:
-   nao se pede aceite de um documento que a pessoa nao pode ler. */
-var TERMOS_URL='';
+/* URL do documento de termos e condicoes da parceria (enviado pela Janaina no
+   Slack em 22/07). Enquanto estava vazia, o aceite aparecia SEM link e com um
+   aviso - nao se pede aceite de um documento que a pessoa nao pode ler.
+   ATENCAO: o arquivo no Drive precisa estar compartilhado como "qualquer pessoa
+   com o link pode VER", senao o candidato bate num pedido de acesso. */
+var TERMOS_URL='https://drive.google.com/file/d/1ugd0mhGshXy8CCcAHkJ8zSULIJ-JcwMv/view';
 
 /* ====== SCHEMA - espelha o Google Forms
    "AFILIADOS | FORMS PARA LP PROSPECÇÃO SQUAD MANUAL" (7 seções; a 1ª é vazia).
