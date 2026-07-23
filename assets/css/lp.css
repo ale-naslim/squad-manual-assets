@@ -31,6 +31,11 @@
 *,*::before,*::after{font-variant-ligatures:none;-webkit-font-feature-settings:"liga" 0,"clig" 0,"dlig" 0,"hlig" 0,"calt" 0;font-feature-settings:"liga" 0,"clig" 0,"dlig" 0,"hlig" 0,"calt" 0}
 html{-webkit-font-smoothing:antialiased}
 body{font-family:var(--font-b);font-weight:400;background:var(--hero-video);color:var(--white);overflow-x:hidden;line-height:1.5;font-variant-ligatures:none;-webkit-font-feature-settings:"liga" 0,"clig" 0,"dlig" 0,"hlig" 0,"calt" 0;font-feature-settings:"liga" 0,"clig" 0,"dlig" 0,"hlig" 0,"calt" 0}
+/* No Webflow, o CSS global do site MANUAL tem body{padding-top:86px} (folga pra
+   nav fixa do site de produto). Esta pagina nao usa aquela nav, entao esse
+   padding vira um vao vazio no topo. "html body" vence por especificidade e
+   zera. Sem efeito fora do Webflow (nossa fonte ja nao tem padding no body). */
+html body{padding:0}
 img,video{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(22px,6vw,72px)}

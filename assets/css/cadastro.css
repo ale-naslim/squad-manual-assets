@@ -18,6 +18,11 @@
 *,*::before,*::after{font-variant-ligatures:none;-webkit-font-feature-settings:"liga" 0,"clig" 0,"dlig" 0,"hlig" 0,"calt" 0;font-feature-settings:"liga" 0,"clig" 0,"dlig" 0,"hlig" 0,"calt" 0}
 html{-webkit-font-smoothing:antialiased}
 body{font-family:var(--fh);color:var(--ink);background:var(--paper);line-height:1.45;font-variant-ligatures:none;position:relative;overflow-x:hidden;min-height:100vh}
+/* No Webflow, o CSS global do site MANUAL tem body{padding-top:86px} (folga pra
+   nav fixa do site de produto). Esta pagina nao usa aquela nav, entao esse
+   padding vira um vao vazio no topo. "html body" vence por especificidade e
+   zera. Sem efeito fora do Webflow (nossa fonte ja nao tem padding no body). */
+html body{padding:0}
 body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
   background:radial-gradient(65vw 55vh at 84% -8%,rgba(159,228,178,.28),transparent 62%),
              radial-gradient(55vw 55vh at -12% 20%,rgba(99,182,181,.16),transparent 60%),
